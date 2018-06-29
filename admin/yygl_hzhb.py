@@ -50,7 +50,7 @@ class admin_yygl(unittest.TestCase):
         result_exp = 200
         result_act = fws_test.status_code
         self.assertEqual(result_exp, result_act)
-        print("新增服务商成功")
+        print("新增服务商成功abcd123456")
 
     # 运营管理-合作伙伴管理-新增供应商
     def test_a002_yygl(self):
