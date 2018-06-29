@@ -121,10 +121,13 @@ class admin_yygl(unittest.TestCase):
         # 返回状态码信息
         totalCount = qykh_test.split("startRow", 2)[1].split(",", 2)[1].split(":", 2)[1]
         # 判断当前返回码及字段值
-        if qykh_test_01.status_code == 200 and int(totalCount) == 1:
-            print("企业用户"+parnername+"成功")
-        else:
-            print("企业用户"+parnername+"失败")
+        result_act = int(totoalCount)
+        result_exp = 1
+        self.assertEqual(result_exp, result_act, "查询的日志结果不一致")
+        # if qykh_test_01.status_code == 200 and int(totalCount) == 1:
+        #     print("企业用户"+parnername+"成功")
+        # else:
+        #     print("企业用户"+parnername+"失败")
 
     # 运营管理-企业客户管理-存在的用户查询
     def test_b001_search(self):
@@ -153,10 +156,12 @@ class admin_yygl(unittest.TestCase):
         qykh_test = qykh_test_01.text
         # 返回状态码信息
         totalCount = qykh_test.split("startRow", 2)[1].split(",", 2)[1].split(":", 2)[1]
-        if qykh_test_01.status_code == 200 and int(totalCount) == 0:
-            print("不存在企业用户"+serach_name+"查询成功")
-        else:
-            print("不存在企业用户"+serach_name+"查询失败")
+        result_exp = 200;
+        self.assertEqual(result_exp, totalCount)
+        # if qykh_test_01.status_code == 200 and int(totalCount) == 0:
+        #     print("不存在企业用户"+serach_name+"查询成功")
+        # else:
+        #     print("不存在企业用户"+serach_name+"查询失败")
 
     # 运营管理-企业客户管理-合作伙伴管理-企业审核
     def test_b003_search(self):
